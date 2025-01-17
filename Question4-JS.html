@@ -3,20 +3,33 @@
 
 <head>
     <title>Question 4 - JavaScript</title>
-
+<style>
+        button:focus {
+            outline: none;
+            border: 2px solid #4CAF50; /* Visual feedback when the button is focused */
+        }
+    </style>
 </head>
 
 <body>
     <h1>HTML DOM Events</h1>
     <p>Trigger a function on hover that will output "Hello World":</p>
 
-    <button onmouseover="myFunction()">Action!</button>
+    <button onmouseover="myFunction()" 
+            onfocus="myFunction()" 
+            onkeydown="handleKeyPress(event)">Action!</button>
     <p id="demo"></p>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter" || event.key === " ") {
+                myFunction();
+            }
+        }
+    </script>
 </body>
-<script>
-    function myFunction() {
-        document.getElementById("demo").innerHTML = "Hello World";
-    }
-</script>
 
 </html>
